@@ -1,2 +1,2 @@
 # MyCourses
-These are courses that I have taken just trying to build up knowledge in particular areas.
+Welcome to my courses repository! These are going to be a collection of projects that I have taken up by following through particular courses. I am not a huge fan of creating IG/Facebook clones or replicating projects that already exist in the real world, however I do think that those clones are really good projects to get familiar with a particular coding language. That is the entire purpose of this repository here. It is to get familiar with different projects.
