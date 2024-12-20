@@ -1,8 +1,23 @@
 const http = require('http'); // To create servers.
-const fs = require('fs');
+const fs = require('fs'); 
 
 const server = http.createServer((req, res) => {
-    console.log('Request made.');
+    console.log(req-url, req-method);
+
+    res.setHeader('Content-Type', 'text/html');
+
+    let path = './views';
+    switch(req.url) {
+        case '/':
+            path += 'index.html';
+            break;
+        case '/about':
+            path += 'about.html';
+            break;
+        default:
+            path += '404.html';
+            break;
+    }
 
     // Set header content type:
     fs.readFile('./views/index.html', (err, data) => {
@@ -21,4 +36,3 @@ server.listen(3000, 'localhost', () => {
 
 /* Ports are like different doors, different apps on your computer
 have different ports */
-
