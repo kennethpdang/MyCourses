@@ -1,5 +1,6 @@
 const http = require('http'); // To create servers.
-const fs = require('fs'); 
+const fs = require('fs');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
