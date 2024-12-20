@@ -3,9 +3,16 @@ const fs = require('fs');
 const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
-    const num = _.random(0, 20);
+    const num = _.random(0, 20); // Generating a random number with lodash library.
     console.log(num);
     res.setHeader('Content-Type', 'text/html');
+
+    const greet = _.once(() => {
+        console.log("hello");
+    })
+
+    greet();
+    greet(); // The lodash only allows this function to run ONCE.
 
     let path = './views/';
     switch(req.url) {
