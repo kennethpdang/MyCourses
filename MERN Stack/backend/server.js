@@ -1,6 +1,10 @@
 const express = require('express');
-const app = express();
 require('dotenv').config();
+const app = express();
+const mongoose = require('mongoose');
+const workoutRoutes = require('./routes/workout.js');
+
+app.use(express.json()); 
 
 app.use((request, response, next) => {
     console.log(request.path, request.method);
@@ -8,9 +12,10 @@ app.use((request, response, next) => {
 });
 
 // Routes
-app.get('/', (request, response) => {
-    response.json({mssg: "Welcome to the application."});
-});
+app.use('/api/workouts', workoutRoutes); // Uses all routes from workout routes.
+
+// Connect to MongoDB:
+mongoose.connect(process.env.MONGODB_URI)
 
 // Listen for Requests:
 app.listen(process.env.PORT, () => {
